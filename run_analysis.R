@@ -33,8 +33,11 @@ activity_labels <-read.table("UCI HAR Dataset/activity_labels.txt")
 mean_locations <- grep(pattern = "mean()", x = features$V2)
 std_locations <- grep(pattern = "std()", x = features$V2)
 
-# NOT READY Rename Mean and Standard Deviation Variables
-# Full_Data <- Full_Data %>% rename_at(vars)
-
 # Extract mean and standard deviation measurements
-means_stds <- Full_Data[,c(1, 2, mean_locations+2, std_locations+2)]
+means_stds <- Full_Data[,c(1, 2, mean_locations+2, std_locations+2, match("Dataset", names(Full_Data)))]
+
+# Extract mean and standard deviation labels
+new_labels <- features$V2[c(mean_locations, std_locations)]
+
+# Rename mean and standard deviation variables
+means_stds <- rename_with(.data = means_stds, .fn = ~ (names(means_stds)[4:length(means_stds)-1] <- new_labels), .cols = names(means_stds)[4:length(means_stds)-1])
