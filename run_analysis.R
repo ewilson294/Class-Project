@@ -21,7 +21,7 @@ subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt", header = FAL
 y_test <- rename(y_test, Activity = V1)
 subject_test <- rename(subject_test, Subject = V1)
 # Append subject and Activity Data
-X_train <- cbind(subject_test, y_test, X_test)
+X_test <- cbind(subject_test, y_test, X_test)
 
 # Combine Test and Train data
 
