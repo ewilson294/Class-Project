@@ -13,6 +13,7 @@ y_train <- rename(y_train, Activity = V1)
 subject_train <- rename(subject_train, Subject = V1)
 # Append Subject and Activity Data
 X_train <- cbind(subject_train, y_train, X_train)
+X_train$Dataset <- rep("Train", length(X_train$V1))
 
 # Read data from /test
 X_test <- read.table("UCI HAR Dataset/test/X_test.txt", header = FALSE, sep = "")
@@ -22,9 +23,10 @@ y_test <- rename(y_test, Activity = V1)
 subject_test <- rename(subject_test, Subject = V1)
 # Append subject and Activity Data
 X_test <- cbind(subject_test, y_test, X_test)
+X_test$Dataset <- rep("Test", length(X_test$V1))
 
 # Combine Test and Train data
-
+Full_Data <- rbind(X_train, X_test)
 
 features <- read.table("UCI HAR Dataset/features.txt")
 activity_labels <-read.table("UCI HAR Dataset/activity_labels.txt")
