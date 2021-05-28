@@ -41,3 +41,12 @@ new_labels <- features$V2[c(mean_locations, std_locations)]
 
 # Rename mean and standard deviation variables
 means_stds <- rename_with(.data = means_stds, .fn = ~ (names(means_stds)[4:length(means_stds)-1] <- new_labels), .cols = names(means_stds)[4:length(means_stds)-1])
+
+# Replace Activity Number with Descriptive Label
+for (activity in 1:length(activity_labels$V1)) {
+    for (activity_code in 1:length(means_stds$Activity)){
+        if (means_stds$Activity[activity_code] == activity_labels$V1[activity]){
+            means_stds$Activity[activity_code] <- activity_labels$V2[activity]
+        }
+    }
+}
