@@ -50,3 +50,6 @@ for (activity in 1:length(activity_labels$V1)) {
         }
     }
 }
+
+# Output means_stds to a .csv file
+write.csv(means_stds, "UCI HAR Dataset/Means_and_Standard_Deviations.csv", row.names = FALSE)
