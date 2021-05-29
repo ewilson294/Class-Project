@@ -66,3 +66,6 @@ for (subject in 1:30) {
         }
 }
 colnames(averages) <- names(means_stds)
+
+# Output averages to a .csv file
+write.csv(averages, "UCI HAR Dataset/Subject_Averages.csv", row.names = FALSE)
