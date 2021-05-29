@@ -65,3 +65,4 @@ for (subject in 1:30) {
                 averages <- rbind(averages, c(subject, activity_labels[activity,2], subject_averages, subject_data$Dataset[1]))
         }
 }
+colnames(averages) <- names(means_stds)
