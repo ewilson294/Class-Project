@@ -53,3 +53,15 @@ for (activity in 1:length(activity_labels$V1)) {
 
 # Output means_stds to a .csv file
 write.csv(means_stds, "UCI HAR Dataset/Means_and_Standard_Deviations.csv", row.names = FALSE)
+
+## Create second tidy data set with average for each variable for each
+## activity and each subject
+averages <- data.frame()
+for (subject in 1:30) {
+    subject_data <- means_stds[means_stds$Subject == subject,]
+        for (activity in 1:6){
+            subject_data.f <- filter(subject_data, subject_data$Activity == activity_labels[activity,2])
+                subject_averages <- colMeans(x = select(subject_data.f,"tBodyAcc-mean()-X":"fBodyBodyGyroJerkMag-std()" ), na.rm = FALSE)
+                averages <- rbind(averages, c(subject, activity_labels[activity,2], subject_averages, subject_data$Dataset[1]))
+        }
+}
