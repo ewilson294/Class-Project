@@ -1,6 +1,6 @@
-# Class-Project for Getting and Cleaning Data, Data Science Specialization
-# Author: Eric Wilson
-# Data from UCI Machine Learning Repository
+## Class-Project for Getting and Cleaning Data, Data Science Specialization
+## Author: Eric Wilson
+## Data from UCI Machine Learning Repository
 
 This repository contains a script to create a tidy data set from UCI's data.
 Analysis script
