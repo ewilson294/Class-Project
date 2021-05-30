@@ -123,3 +123,5 @@ List of variables used in Means_and_Standard_Deviations.csv, using the rules and
 - fBodyBodyGyroMag-std()
 - fBodyBodyGyroJerkMag-std()
 - Dataset
+
+Subject_Averages.csv uses the same variable names as above. However, each variable refers to the mean value of the observations by subject by activity.
