@@ -15,6 +15,8 @@ Tidy data sets in /UCI HAR Dataset
 Code Book
 - CodeBook.md
 
+Original Data is the 'UCI HAR Dataset' folder, without Means_and_Standard_Deviations.csv or Subject_Averages.csv
+
 run_analysis.R takes the "raw" data from the UCI data set and creates two tidy data sets
 
 Means_Standard_Deviations.csv is a tidy data set of the means and standard deviations from the UCI Data
